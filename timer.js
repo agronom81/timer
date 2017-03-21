@@ -3,8 +3,6 @@
  * https://github.com/agronom81/timer
  */
 
-;
-(function($) {
     'use strict';
 
     function getTimeRemaining(endtime) {
@@ -71,4 +69,3 @@
             initializeClock(targets[i]);
         }
     }
-})();
