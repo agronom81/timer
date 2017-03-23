@@ -1,9 +1,22 @@
 /*!
- * timer.js v1.1
+ * timer.js v1.2
  * https://github.com/agronom81/timer
  */
-
+;
+(function(window, undefined) {
     'use strict';
+
+    var timerClock = {};
+
+    var oldGlobalVar = window.timerClock;
+
+    timerClock.noConflict = function() {
+        if (window.timerClock === timerClock) {
+            window.timerClock = oldGlobalVar;
+        }
+
+        return timerClock;
+    }
 
     function getTimeRemaining(endtime) {
         var t = Date.parse(endtime) - Date.parse(new Date());
@@ -69,3 +82,9 @@
             initializeClock(targets[i]);
         }
     }
+
+    timerClock.viewClock = viewClock;
+
+    window.timerClock = timerClock;
+
+})(window);
